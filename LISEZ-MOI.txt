@@ -1,0 +1,216 @@
+MAQUETTE DE PRÉSENTATION — PORTFOLIO ACCÉLÉRATEUR M
+===================================================
+
+Ce dossier contient le portfolio des entreprises accompagnées par
+l'Accélérateur M depuis 2014. C'est la maquette de présentation : une
+version allégée du portfolio interne, préparée pour être montrée à la
+Métropole. Elle ne conserve que ce qui documente l'action de
+l'accélérateur et son effet sur le territoire.
+
+Ses chiffres sont alignés sur ceux de la console M Alumni : mêmes
+emplois, mêmes 73 671 800 € de fonds levés. Elle compte une fiche de
+moins, un quatrième doublon ayant été trouvé depuis (WAY CARE / WayCare,
+la même société revenue sur deux promotions).
+
+
+COMMENT L'OUVRIR
+----------------
+
+Le plus simple : double-cliquer sur « index.html ». Le site s'ouvre
+dans le navigateur, sans installation.
+
+Si la carte ou les polices ne s'affichent pas correctement (certains
+navigateurs bloquent les fichiers ouverts en direct), utiliser plutôt :
+
+  - sur Mac     : double-clic sur « START-mac.command »
+  - sur Windows : double-clic sur « START-windows.bat »
+
+Ces deux scripts lancent un petit serveur local et ouvrent la bonne
+page. Laisser la fenêtre Terminal (ou l'invite de commandes) ouverte
+pendant la consultation ; la fermer arrête le serveur.
+
+Une connexion internet est nécessaire pour le fond de carte. Tout le
+reste fonctionne hors ligne, y compris la typographie : la police
+D-DIN est embarquée dans le dossier « fonts » (Datto / Monotype,
+licence SIL Open Font License 1.1, texte de la licence dans
+fonts/OFL-1.1.txt).
+
+
+CE QUE CONTIENT CETTE VERSION
+-----------------------------
+
+  Portfolio      Les entreprises accompagnées, avec recherche, filtres
+                 (programme, promotion, thématique, ville) et une fiche
+                 détaillée par entreprise.
+  Timeline       Les promotions année par année.
+  Carte          L'implantation géographique des entreprises.
+  Statistiques   Secteurs, promotions, pays, implantation et plus
+                 grosses levées.
+
+Les statistiques sont présentées promotion par promotion, de MPU#01 à
+MPU#26 : chaque édition compte pour elle-même. Elles ne sont pas
+regroupées par programme — les promotions MPU étant les éditions
+successives de M'Power Up, les réunir sous une seule barre effacerait
+onze ans d'activité.
+
+Deux exceptions, à la demande de l'équipe : Soft Landing PAC et le
+programme Comores traversent les éditions #24 à #26 et sont réunis sur
+une seule ligne. Sur ces deux lignes, ce sont des entreprises qui sont
+comptées et non des passages — le programme Comores totalise 21
+participations mais 10 entreprises distinctes, onze d'entre elles étant
+revenues d'une édition à l'autre.
+
+Les filtres du Portfolio pilotent aussi la page Statistiques : filtrez sur
+une promotion ou un secteur, et tous les chiffres se recalculent sur cette
+sélection. La page indique en permanence sur combien d'entreprises elle
+porte.
+
+
+LES CHIFFRES : CE QU'ILS SONT, ET CE QU'ILS NE SONT PLUS
+--------------------------------------------------------
+
+Le portfolio affichait jusqu'ici deux vérités concurrentes : 207 start-up
+annoncées en haut de page, 184 fiches en dessous. Les nombres figés ont été
+retirés. Tout ce qui s'affiche se recalcule maintenant sur les fiches.
+
+  180 entreprises      Quatre sociétés étaient saisies deux fois sous des
+                       noms différents — WideWebVR/WiXar, Opomise/OPOMISE,
+                       Shakeout/Dinette.app et WAY CARE/WayCare. Elles ont
+                       été fusionnées.
+  73 671 800 €         Fonds levés cumulés. Ce chiffre est le contrôle de
+                       la fusion : les doublons portaient la même levée,
+                       comptée deux fois. Après fusion, le total retombe
+                       exactement sur le montant officiel communiqué par
+                       l'accélérateur.
+  232 emplois          Somme déclarée dans le fichier de suivi.
+  24 promotions        Éditions distinctes présentes en base — l'annonce
+                       habituelle de 11 comptait les éditions principales.
+
+⚠️ 207 sociétés ont probablement été accompagnées depuis 2014 ; le
+portfolio n'en documente que 181. Les libellés ont donc été changés : on
+n'annonce plus « start-up accompagnées » mais « entreprises du
+portefeuille », qui est ce que la base sait réellement.
+
+Un bouton « Rapport PDF » permet d'exporter le portfolio filtré.
+Le bouton en forme d'écran, en haut à droite (ou la touche P), passe en
+mode présentation. Le site s'affiche en thème clair ou sombre au choix.
+
+
+CE QU'UNE FICHE ENTREPRISE CONTIENT, ET D'OÙ ÇA VIENT
+-----------------------------------------------------
+
+Les 180 fiches ont une description. Chacune porte sa provenance, écrite
+sous le texte, parce qu'elles ne se valent pas :
+
+  « D'après le site de l'entreprise, relevé le … »          14 fiches
+      Rédigée à partir du seul contenu publié par la société sur son
+      site, avec le lien et la date du relevé.
+
+  Description saisie par l'équipe de l'accélérateur          51 fiches
+      Texte interne, jamais recoupé avec l'entreprise. C'est la source
+      la moins sûre du lot — voir les points de vigilance.
+
+  « Activité déclarée au registre national des entreprises » 33 fiches
+      L'objet social immatriculé auprès de l'INSEE, avec la forme
+      juridique, l'année d'immatriculation, l'effectif déclaré et le
+      SIRET. C'est une donnée officielle, mais c'est de l'objet social,
+      pas un discours commercial : une société peut faire autre chose
+      que ce que dit son code d'activité.
+
+  Éléments du fichier de suivi de l'accélérateur             82 fiches
+      Programme, promotion, implantation, thématique, emplois et fonds.
+      Ces entreprises n'ont pas été retrouvées au registre français :
+      elles sont étrangères — Tunisie, Comores, Algérie — ou
+      immatriculées sous une autre raison sociale. La fiche le dit.
+
+En complément, sur les fiches concernées :
+
+  « Le parcours »                                            19 fiches
+      Récit développé, composé à la main depuis la fiche de suivi et le
+      site de l'entreprise. Aucun fait n'y est ajouté à ces deux sources.
+
+  « Ils en parlent »                        35 articles · 24 entreprises
+      Articles de presse réels relevés via Google Actualités le
+      26 août 2026. Chaque titre renvoie à l'article d'origine.
+
+  « Identité juridique »                                     63 fiches
+      Forme juridique, date de création, SIRET et état au registre.
+
+Aucune description n'a été inventée. Là où aucune source ne dit ce que
+fait l'entreprise, la fiche l'écrit noir sur blanc plutôt que de
+combler le vide.
+
+
+CE QUI A ÉTÉ RETIRÉ
+-------------------
+
+  - l'espace privé réservé aux alumni (messagerie, offres, événements) ;
+  - le mode édition et l'administration des fiches ;
+  - l'assistant conversationnel ;
+  - le portail « M startups », qui n'est pas encore renseigné ;
+  - un fil d'actualités et quatre récits qui étaient des exemples de
+    démonstration : montants, citations et distinctions y étaient
+    inventés. Ils sont remplacés par les récits et les articles réels
+    décrits plus haut ;
+  - la première version de la section « Ils en parlent » : les
+    parutions presse qui y figuraient étaient générées automatiquement
+    et ne correspondaient à aucun article existant ;
+  - les pages fondateurs, qui exposaient des données personnelles.
+
+Les coordonnées personnelles des fondateurs (209 adresses e-mail et
+149 numéros de téléphone) ont été effacées du fichier de données
+lui-même, et pas seulement masquées à l'écran : ce dossier peut être
+transmis et projeté sans exposer de donnée personnelle. Les noms des
+cofondateurs, les sites web et les profils LinkedIn sont conservés.
+La base complète reste dans le dossier de travail interne.
+
+
+POINTS DE VIGILANCE AVANT DIFFUSION
+-----------------------------------
+
+  - Le champ « statut » (Active / Éteinte / Rachetée) provient d'un
+    import de fichier. Il a maintenant été recoupé avec le registre
+    national des entreprises. 63 fiches ont pu être rapprochées avec
+    certitude, et 15 d'entre elles sont déclarées cessées.
+
+    Les deux valeurs sont affichées sur la fiche : le statut de la
+    base dans « Chiffres clés », l'état officiel dans « Identité
+    juridique », avec sa date de cessation. En cas de désaccord,
+    c'est le registre qui fait foi.
+
+    Le site applique cette correction partout : une société déclarée
+    cessée au registre n'apparaît plus dans l'onglet « Actives ». Le
+    portefeuille compte donc 144 actives et 36 éteintes, contre 147 et
+    33 selon le seul fichier de suivi.
+
+    ⚠️ 117 fiches n'ont PAS pu être rapprochées du registre : les
+    sociétés étrangères (Tunisie, Comores, Algérie) n'y figurent pas,
+    et certaines fiches portent un nom de produit plutôt qu'une raison
+    sociale. Leur statut reste donc purement déclaratif.
+
+    La correction ne va que dans un sens, et c'est voulu : une date de
+    cessation dément une entreprise annoncée active, mais une
+    immatriculation encore ouverte ne prouve pas qu'une activité
+    continue. Une société que l'équipe sait éteinte le reste.
+
+  - Les trois doublons connus sont fusionnés. La vérification des sites
+    en a révélé trois autres paires qui déclarent la même adresse web :
+    Linkpick et NOX Lab, Marsdesign et Marsdlight, Proverdy et e-acta.
+    Celles-ci n'ont PAS été fusionnées : rien ne dit encore s'il s'agit
+    de doublons ou d'une adresse mal saisie. À trancher par l'équipe.
+
+  - Une partie des 37 descriptions internes date de la phase de
+    maquette et n'a jamais été recoupée. L'une d'elles annonce pour
+    Green Technologie « une seconde usine dans la région lyonnaise » :
+    cette affirmation provient du même lot que les contenus de
+    démonstration supprimés, et le site de la société ne répond plus.
+    À vérifier auprès de l'entreprise avant de la citer.
+
+  - Les chiffres mis en avant (start-ups accompagnées, emplois créés,
+    fonds levés, promotions) sont les chiffres officiels de
+    l'accélérateur, saisis manuellement. Ils ne sont pas recalculés à
+    partir des fiches et peuvent différer de la somme affichée dans les
+    listes.
+
+  - Les descriptions, logos et liens ne sont pas complets sur toutes
+    les fiches : la base est encore en cours d'enrichissement.

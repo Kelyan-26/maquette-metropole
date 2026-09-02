@@ -1,0 +1,4 @@
+# Les données en clair ne partent JAMAIS en ligne : le dépôt est public.
+# Seul donnees.enc.json est versionné.
+data-seed.js
+.DS_Store

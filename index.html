@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accélérateur M — Portfolio des entreprises accompagnées</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css?v=20260901-ddin">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous" defer></script>
+</head>
+<body data-section="alumni" class="porte-fermee">
+
+<div class="porte" id="porte">
+  <form class="porte-carte" id="porte-form" autocomplete="off">
+    <img class="porte-logo" src="logo.png" alt="Accélérateur M">
+    <h1 class="porte-titre">Portfolio des entreprises accompagnées</h1>
+    <p class="porte-sous-titre">
+      Ce portfolio est réservé à l'Accélérateur M et à ses partenaires.
+      Saisissez la phrase de passe qui vous a été transmise.
+    </p>
+    <label class="porte-label" for="porte-phrase">Phrase de passe</label>
+    <input class="porte-champ" id="porte-phrase" type="password" required
+           autocomplete="current-password" spellcheck="false">
+    <button class="porte-bouton" type="submit">Ouvrir le portfolio</button>
+    <p class="porte-message" id="porte-message"></p>
+    <p class="porte-note">
+      Les données sont chiffrées et déchiffrées dans votre navigateur.
+      Rien n'est transmis à un serveur.
+    </p>
+  </form>
+</div>
+
+
+<!-- Écran de chargement avec cube isométrique animé -->
+<div class="app-loader" id="app-loader">
+  <div class="loader-cube">
+    <div class="loader-cube-face top"></div>
+    <div class="loader-cube-face left"></div>
+    <div class="loader-cube-face right"></div>
+    <div class="loader-m-notch notch-1"></div>
+    <div class="loader-m-notch notch-2"></div>
+  </div>
+  <div class="loader-brand">
+    <div class="loader-name">ACCÉLÉRATEUR M</div>
+    <div class="loader-sub">Portfolio des entreprises accompagnées</div>
+  </div>
+  <div class="loader-progress"><div class="loader-progress-bar"></div></div>
+</div>
+
+<header class="header" id="app-header">
+  <div class="header-content">
+    <div class="logo" onclick="navigate('#/alumni')">
+      <div class="logo-box">
+        <img src="logo.png" alt="Accélérateur M">
+      </div>
+      <div>
+        <h1 id="header-title">Accélérateur M</h1>
+        <p id="header-subtitle">Portfolio des entreprises accompagnées</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="search-bar-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" class="search-bar" id="search-input" placeholder="Rechercher une entreprise, un alumni...">
+      </div>
+      <button class="header-icon-btn" id="btn-present" onclick="togglePresentMode()" title="Mode présentation (P)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Basculer thème clair / sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="main-nav" id="app-nav">
+    <div class="main-nav-inner" id="main-nav-inner"></div>
+    <div id="breadcrumbs-bar" class="breadcrumbs-bar"></div>
+  </nav>
+</header>
+
+<main id="app"></main>
+
+<div class="modal-overlay" id="modal-overlay"></div>
+<div class="toast" id="toast"></div>
+
+<!-- Cursor spotlight (halo bleu qui suit la souris) -->
+<div id="cursor-spotlight" aria-hidden="true"></div>
+
+<script src="portail.js"></script>
+</body>
+</html>
