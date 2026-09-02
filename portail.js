@@ -14,6 +14,13 @@
   const FICHIER = 'donnees.enc.json';
   const CLE_SESSION = 'maquette-phrase';
 
+  // ⚠️ Verrou indispensable. Pour démarrer app.js — qui s'initialise sur
+  // DOMContentLoaded, déjà passé — on redéclenche cet événement. Or ce
+  // fichier écoute lui-même DOMContentLoaded : sans ce verrou, il se
+  // rappelle, redéchiffre, recharge l'application, redéclenche… et la page
+  // se réinitialise en boucle.
+  let demarre = false;
+
   const $ = (id) => document.getElementById(id);
   const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
 
@@ -40,6 +47,8 @@
   }
 
   function chargeApplication() {
+    if (demarre) return;
+    demarre = true;
     const s = document.createElement('script');
     s.src = 'app.js';
     s.onload = () => {
@@ -55,7 +64,7 @@
   }
 
   async function ouvre(phrase, silencieux) {
-    if (!phrase) return false;
+    if (!phrase || demarre) return false;
     message('Déchiffrement…', 'attente');
     try {
       const rep = await fetch(FICHIER, { cache: 'no-store' });
@@ -77,6 +86,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', async () => {
+    if (demarre) return;   // relance provoquée par notre propre dispatch
     const loader = $('app-loader');
     if (loader) loader.classList.add('hidden');
 
