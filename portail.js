@@ -14,11 +14,7 @@
   const FICHIER = 'donnees.enc.json';
   const CLE_SESSION = 'maquette-phrase';
 
-  // ⚠️ Verrou indispensable. Pour démarrer app.js — qui s'initialise sur
-  // DOMContentLoaded, déjà passé — on redéclenche cet événement. Or ce
-  // fichier écoute lui-même DOMContentLoaded : sans ce verrou, il se
-  // rappelle, redéchiffre, recharge l'application, redéclenche… et la page
-  // se réinitialise en boucle.
+  // Le verrou reste : une seule ouverture par chargement de page.
   let demarre = false;
 
   const $ = (id) => document.getElementById(id);
@@ -49,18 +45,11 @@
   function chargeApplication() {
     if (demarre) return;
     demarre = true;
-    const s = document.createElement('script');
-    s.src = 'app.js';
-    s.onload = () => {
-      // app.js s'initialise sur DOMContentLoaded, déjà passé à ce stade :
-      // on le déclenche nous-mêmes.
-      document.dispatchEvent(new Event('DOMContentLoaded', { bubbles: true }));
-      document.body.classList.remove('porte-fermee');
-      const porte = $('porte');
-      if (porte) porte.remove();
-    };
-    s.onerror = () => message("L'application n'a pas pu être chargée.", 'erreur');
-    document.body.appendChild(s);
+    // app.js est déjà chargé par la page ; il attend juste ses données.
+    document.dispatchEvent(new Event('donnees-pretes'));
+    document.body.classList.remove('porte-fermee');
+    const porte = $('porte');
+    if (porte) porte.remove();
   }
 
   async function ouvre(phrase, silencieux) {

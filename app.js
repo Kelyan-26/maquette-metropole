@@ -3595,7 +3595,12 @@ openEntrepriseModal = function(id) {
 
 // ----- BOOTSTRAP -----
 
-document.addEventListener('DOMContentLoaded', async () => {
+// ⚠️ Version en ligne : l'application NE démarre PAS sur DOMContentLoaded.
+// Les données arrivent chiffrées et ne sont disponibles qu'après saisie de la
+// phrase de passe. `portail.js` émet « donnees-pretes » à ce moment-là.
+// Cet événement n'appartient qu'à cette paire de fichiers : rien d'autre ne
+// l'écoute ni ne l'émet, donc aucun cycle n'est possible.
+document.addEventListener('donnees-pretes', async () => {
   initTheme();
   await loadData();
   refreshReferentials();
