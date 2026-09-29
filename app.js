@@ -1823,6 +1823,7 @@ function renderCard(e, allEntreprises) {
   return `
     <div class="card editable" data-editable-type="entreprise" data-editable-id="${escapeHtml(e.id)}" style="view-transition-name:card-${escapeHtml(e.id)};" onclick="navigate('#/alumni/entreprise/${escapeHtml(e.id)}')">
       ${editPencil(`openEntrepriseInlineEditor('${escapeHtml(e.id)}')`)}
+      ${cardBadge(e, allEntreprises)}
       <div class="card-mini-body">
         ${logoHtml}
         <h4 class="card-mini-name">${escapeHtml(e.nom)}</h4>
