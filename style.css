@@ -17773,3 +17773,35 @@ body[data-theme="dark"] .porte-message.est-erreur { color: #F2B8B5; }
   line-height: 1.5;
   color: var(--text-muted);
 }
+
+/* =================================================================
+   LE BADGE « ÉTEINTE » — 29/09/2026
+   =================================================================
+   Il existait depuis le début (`cardBadge()` le produit, `.card-badge`
+   le pose déjà en haut à droite), mais le bloc « CARDS V7 FINAL » plus
+   haut le neutralisait d'un `display: none !important` au milieu d'un
+   reset de décorations. Il y a donc été emporté par erreur, avec les
+   liserés et les clip-path que ce reset visait vraiment.
+
+   On le rétablit, et en rouge : une société qui n'existe plus doit se
+   voir au premier coup d'œil sur une grille de 180 cadres. Le gris de
+   l'ancienne version se confondait avec le texte secondaire.
+
+   Les deux thèmes sont traités. Le rouge est choisi pour tenir le
+   contraste sur chacun des deux fonds, pas repris tel quel de l'un à
+   l'autre.
+   ================================================================= */
+.card-badge--dormant {
+  display: inline-flex !important;
+  background: rgba(211, 47, 47, 0.10);
+  color: #b3261e;
+  border: 1px solid rgba(211, 47, 47, 0.32);
+}
+.card-badge--dormant::before { background: #d32f2f; }
+
+body[data-theme="dark"] .card-badge--dormant {
+  background: rgba(255, 138, 128, 0.14);
+  color: #ff9d94;
+  border-color: rgba(255, 138, 128, 0.36);
+}
+body[data-theme="dark"] .card-badge--dormant::before { background: #ff8a80; }

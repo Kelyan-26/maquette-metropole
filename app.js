@@ -1763,12 +1763,21 @@ function countByFilter(key, options) {
 }
 
 function cardBadge(e, allEntreprises) {
-  // Retourne 1 badge max, priorité : star > raised > soon > dormant
+  // Retourne 1 badge max, priorité : dormant > star > raised > soon
+  //
+  // ⚠️ « Éteinte » passe DEVANT tous les autres depuis le 29/09/2026. Un seul
+  // badge s'affiche par cadre : avec l'ancienne priorité, une société éteinte
+  // qui détenait la plus grosse levée du portfolio s'affichait « Top levée »,
+  // sans que rien ne dise qu'elle n'existe plus. Un superlatif ne doit pas
+  // masquer un état de fait, surtout devant un financeur.
+  const year = e.annee_creation || 0;
+  const currentYear = new Date().getFullYear();
+  if (e.statut === 'Éteinte') {
+    return `<span class="card-badge card-badge--dormant" title="Start-up éteinte">Éteinte</span>`;
+  }
   const topFonds = allEntreprises && allEntreprises.length
     ? Math.max(...allEntreprises.map(x => x.fonds_leves || 0))
     : 0;
-  const year = e.annee_creation || 0;
-  const currentYear = new Date().getFullYear();
   if (topFonds > 0 && e.fonds_leves === topFonds) {
     return `<span class="card-badge card-badge--star" title="Top fonds levés">Top levée</span>`;
   }
@@ -1777,9 +1786,6 @@ function cardBadge(e, allEntreprises) {
   }
   if (e.statut === 'Active' && year >= currentYear - 1) {
     return `<span class="card-badge card-badge--soon" title="Récemment créée">Nouvelle</span>`;
-  }
-  if (e.statut === 'Éteinte') {
-    return `<span class="card-badge card-badge--dormant" title="Start-up éteinte">Éteinte</span>`;
   }
   return '';
 }

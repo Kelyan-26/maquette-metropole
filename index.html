@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Accélérateur M — Portfolio des entreprises accompagnées</title>
 <link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="style.css?v=20260901-ddin">
+<link rel="stylesheet" href="style.css?v=20260929-carte">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous" defer></script>
@@ -90,7 +90,11 @@
 <!-- Cursor spotlight (halo bleu qui suit la souris) -->
 <div id="cursor-spotlight" aria-hidden="true"></div>
 
-<script src="app.js" defer></script>
-<script src="portail.js" defer></script>
+<!-- Le parametre de version force le navigateur a reprendre le fichier.
+     Sans lui, app.js restait en cache : une correction poussee n'atteignait
+     pas les gens qui avaient deja ouvert le site. Constate le 29/09/2026.
+     A incrementer a chaque mise en ligne. -->
+<script src="app.js?v=20260929-carte" defer></script>
+<script src="portail.js?v=20260929-carte" defer></script>
 </body>
 </html>
