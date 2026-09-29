@@ -4377,6 +4377,38 @@ function renderCarte() {
     L.control.zoom({ position: 'topright' }).addTo(mapInstance);
     L.control.scale({ position: 'bottomleft', imperial: false }).addTo(mapInstance);
 
+    /* ⚠️ LA CARTE NE S'AFFICHAIT PLUS — corrigé le 29/09/2026.
+       Leaflet mesure son conteneur UNE SEULE FOIS, à l'initialisation. Ici la
+       carte est montée par un `setTimeout` à 0 ms, donc juste après l'injection
+       du HTML et AVANT que les animations `.p26-reveal` aient fini de poser la
+       mise en page. Le conteneur peut alors avoir une hauteur nulle : Leaflet
+       en déduit une taille de 0, place ses tuiles hors champ, et la zone reste
+       vide. Rien dans le code ne rattrapait cette mesure — `invalidateSize`
+       n'était appelé nulle part.
+
+       On force donc un recalcul quand la mise en page est stable, puis à
+       chaque changement de taille du conteneur. `animate: false` évite un
+       recadrage visible au chargement. */
+    const recalculeTaille = () => {
+      if (mapInstance) mapInstance.invalidateSize({ animate: false });
+    };
+    requestAnimationFrame(() => {
+      recalculeTaille();
+      requestAnimationFrame(recalculeTaille);
+    });
+    // Filet : la dernière révélation se termine après ~80 ms × le nombre de
+    // blocs. Un recalcul tardif couvre le cas où le conteneur grandit encore.
+    setTimeout(recalculeTaille, 600);
+
+    if (typeof ResizeObserver !== 'undefined') {
+      if (window._mapObserver) window._mapObserver.disconnect();
+      window._mapObserver = new ResizeObserver(recalculeTaille);
+      window._mapObserver.observe(mapEl);
+    }
+    if (window._mapResize) window.removeEventListener('resize', window._mapResize);
+    window._mapResize = recalculeTaille;
+    window.addEventListener('resize', window._mapResize);
+
     // Tuiles de fond
     currentTileLayer = MAP_TILE_LAYERS[currentTileMode].build().addTo(mapInstance);
 
