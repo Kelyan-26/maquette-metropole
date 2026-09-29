@@ -826,7 +826,7 @@ function renderLanding() {
             <div>
               <div class="landing3-eyebrow">
                 <span class="landing3-dot"></span>
-                Marseille · Depuis 2014
+                Marseille · Depuis 2018
               </div>
               <h1 class="landing3-title kinetic-title">Accélérateur M</h1>
             </div>
@@ -868,7 +868,7 @@ function renderLanding() {
             </div>
             <div class="l3-card-body">
               <h2 class="l3-card-title">M alumni</h2>
-              <p class="l3-card-desc">Les start-ups accompagnées depuis 2014. Portfolio, timeline, alumni, carte, récits, statistiques.</p>
+              <p class="l3-card-desc">Les start-ups accompagnées depuis 2018. Portfolio, timeline, alumni, carte, récits, statistiques.</p>
             </div>
             <div class="l3-card-stats">
               <div class="l3-stat">
@@ -1118,14 +1118,14 @@ function renderHome() {
         <div class="hero-eyebrow">
           <span>M alumni</span>
           <span class="hero-sep"></span>
-          <span>Depuis 2014 · Marseille</span>
+          <span>Depuis 2018 · Marseille</span>
         </div>
         <h2 class="hero-v4-title hero-v4-title--xl">
           <span class="kinetic-word"><span>Accélérer</span></span>
           <span class="kinetic-word kinetic-word--muted"><span>la</span> <span>métamorphose</span></span>
           <span class="kinetic-word kinetic-word--accent"><span>des</span> <span>entreprises.</span></span>
         </h2>
-        <p class="hero-v4-baseline" data-scramble="1">Depuis 2014, l'Accélérateur M accompagne les start-ups qui se créent et se développent sur le territoire. Ce portfolio recense les entreprises passées par ses programmes, les emplois qu'elles ont créés et les fonds qu'elles ont levés.</p>
+        <p class="hero-v4-baseline" data-scramble="1">Depuis 2018, l'Accélérateur M accompagne les start-ups qui se créent et se développent sur le territoire. Ce portfolio recense les entreprises passées par ses programmes, les emplois qu'elles ont créés et les fonds qu'elles ont levés.</p>
         <div class="hero-v4-cta">
           <button class="btn-primary" onclick="document.querySelector('.kpi-bento')?.scrollIntoView({behavior:'smooth',block:'start'})">
             Voir l'impact
@@ -1156,7 +1156,7 @@ function renderHome() {
           <div class="kpi-tile-value" data-count-target="${state.meta.total_fonds || 0}" data-count-money="1">0</div>
           <div class="kpi-tile-label">Fonds levés cumulés</div>
           <div class="kpi-tile-spark" data-spark="fonds"></div>
-          <div class="kpi-tile-caption">Depuis 2014 · toutes promotions confondues</div>
+          <div class="kpi-tile-caption">Depuis 2018 · toutes promotions confondues</div>
         </a>
 
         <a class="kpi-tile kpi-tile--accent tilt-3d" href="#/alumni" data-kpi="entreprises">
@@ -1891,7 +1891,7 @@ function renderImpactSection() {
         <div class="impact-metrics">
           <div class="impact-metric"><b>${formatMoney(totalFonds)}</b><span>Fonds levés cumulés</span></div>
           <div class="impact-metric"><b>${totalPromos}</b><span>Promotions</span></div>
-          <div class="impact-metric"><b>${new Date().getFullYear() - 2014}</b><span>Années d'existence</span></div>
+          <div class="impact-metric"><b>${new Date().getFullYear() - 2018}</b><span>Années d'existence</span></div>
           <div class="impact-metric"><b>${state.programmes.length}</b><span>Programmes d'accompagnement</span></div>
         </div>
       </div>
@@ -1899,7 +1899,7 @@ function renderImpactSection() {
     <div class="alumni-marquee" aria-label="Toutes les start-ups accompagnées">
       <div class="alumni-marquee-label">
         <span class="alumni-marquee-dot"></span>
-        ${getOfficialCount()} entreprises documentées depuis 2014
+        ${getOfficialCount()} entreprises documentées depuis 2018
       </div>
       <div class="alumni-marquee-track">
         <div class="alumni-marquee-line">${marqueeLine}</div>
@@ -6572,7 +6572,7 @@ const CHATBOT_KNOWLEDGE = [
   },
   {
     keywords: ["m historique", "cette plateforme", "ce site", "à quoi sert ce site"],
-    response: () => "M alumni est le portfolio dynamique des start-ups accompagnées par l'Accélérateur M depuis 2014. Tu peux y explorer les alumni par programme, promotion, thématique ou ville, consulter la timeline chronologique de l'accélérateur, voir la carte des alumni dans le monde, ou accéder aux statistiques globales. L'espace privé propose des services exclusifs pour les alumni. Le portail M startups (en construction) sera dédié aux start-ups actuellement en accompagnement."
+    response: () => "M alumni est le portfolio dynamique des start-ups accompagnées par l'Accélérateur M depuis 2018. Tu peux y explorer les alumni par programme, promotion, thématique ou ville, consulter la timeline chronologique de l'accélérateur, voir la carte des alumni dans le monde, ou accéder aux statistiques globales. L'espace privé propose des services exclusifs pour les alumni. Le portail M startups (en construction) sera dédié aux start-ups actuellement en accompagnement."
   },
   {
     keywords: ["promotion", "promotions", "cohorte", "combien de promotions"],
@@ -8609,7 +8609,7 @@ async function generatePortfolioReport() {
   doc.setFontSize(9);
   doc.setFont('helvetica', 'normal');
   doc.text(entr.length + ' start-ups accompagnées', M, 212);
-  doc.text('depuis 2014', M, 218);
+  doc.text('depuis 2018', M, 218);
   // Big KPIs on cover
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(28);
