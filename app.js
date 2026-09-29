@@ -1814,6 +1814,31 @@ function renderFeaturedCard(e) {
   return renderCard(e, state.entreprises);
 }
 
+/**
+ * Le statut, en haut à droite de CHAQUE cadre.
+ *
+ * Demandé le 29/09/2026 : on doit savoir d'un coup d'œil, sur la grille du
+ * portfolio, si une société est encore en vie. L'ancien `cardBadge()` ne
+ * montrait rien pour les sociétés actives — et quand il montrait quelque
+ * chose, c'était « Top levée » ou « Nouvelle », jamais le statut.
+ *
+ * Ici il n'y a pas de condition : toutes les fiches portent leur statut, tel
+ * qu'il est en base. Les trois valeurs existantes sont Active, Éteinte et
+ * Revendue. On n'en traduit aucune en « active » par défaut : une société
+ * rachetée n'est ni active au sens d'indépendante, ni éteinte, et la ranger
+ * dans l'une des deux fausserait la lecture dans les deux sens.
+ *
+ * Classe dédiée `card-statut`, et non `card-badge` : ce dernier traîne des
+ * `display: none !important` posés par un ancien reset, qu'on ne veut pas
+ * avoir à combattre.
+ */
+function cardStatut(e) {
+  const s = (e.statut || '').trim();
+  if (!s) return '';
+  const cle = s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return `<span class="card-statut card-statut--${escapeHtml(cle)}">${escapeHtml(s)}</span>`;
+}
+
 function renderCard(e, allEntreprises) {
   const programme = (e.programmes || [])[0] || (e.promotions || [])[0] || '';
   const fonds = e.fonds_leves ? formatMoney(e.fonds_leves) : (e.fonds_confidentiel ? 'Confidentiel' : '');
@@ -1823,7 +1848,7 @@ function renderCard(e, allEntreprises) {
   return `
     <div class="card editable" data-editable-type="entreprise" data-editable-id="${escapeHtml(e.id)}" style="view-transition-name:card-${escapeHtml(e.id)};" onclick="navigate('#/alumni/entreprise/${escapeHtml(e.id)}')">
       ${editPencil(`openEntrepriseInlineEditor('${escapeHtml(e.id)}')`)}
-      ${cardBadge(e, allEntreprises)}
+      ${cardStatut(e)}
       <div class="card-mini-body">
         ${logoHtml}
         <h4 class="card-mini-name">${escapeHtml(e.nom)}</h4>
