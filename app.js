@@ -4253,18 +4253,39 @@ const MAP_TILE_LAYERS = {
       { maxZoom: 19, attribution: '© OpenStreetMap' }
     ),
   },
+  /* ⚠️ LES DEUX FONDS CI-DESSOUS ÉTAIENT SERVIS PAR CARTO — remplacés le
+     29/09/2026.
+
+     CARTO exige désormais une clé d'API sur `basemaps.cartocdn.com`. Le piège
+     est qu'il ne renvoie pas une erreur : il répond **HTTP 200 avec une image
+     de 2 ko portant « API KEY REQUIRED » peinte dedans**. Tout contrôle de
+     disponibilité par code de réponse passe donc au vert, et c'est ce qui a
+     fait perdre du temps — la carte semblait chargée, elle affichait un
+     carrelage de messages d'erreur.
+
+     Le fond `clair` était le DÉFAUT : la carte était donc inutilisable à
+     l'ouverture, sans que rien ne le signale dans la console.
+
+     Les deux fonds sont repris chez Esri, qui sert ces canevas sans clé. Le
+     rendu est très proche : un fond gris clair et un fond gris sombre,
+     volontairement discrets pour que les marqueurs ressortent.
+
+     `maxNativeZoom` plutôt que `maxZoom` : ces canevas s'arrêtent au zoom 16.
+     Sans lui, Leaflet cesserait d'afficher des tuiles au-delà et la carte
+     redeviendrait blanche en zoom fort. Là, il agrandit la dernière tuile
+     disponible — flou, mais jamais vide. */
   clair: {
     label: 'Clair',
     build: () => L.tileLayer(
-      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-      { maxZoom: 20, attribution: '© CARTO' }
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      { maxNativeZoom: 16, maxZoom: 19, attribution: 'Tiles © Esri' }
     ),
   },
   sombre: {
     label: 'Sombre',
     build: () => L.tileLayer(
-      'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-      { maxZoom: 20, attribution: '© CARTO' }
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      { maxNativeZoom: 16, maxZoom: 19, attribution: 'Tiles © Esri' }
     ),
   },
 };
